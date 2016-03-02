@@ -7,10 +7,17 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
-
 gem 'mysql2'
 
+gem 'active_model_serializers'
 
+group :doc do
+  gem 'sdoc'
+end
+
+group :development do
+  gem 'spring'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
