@@ -20,7 +20,7 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 
 ## Known Bugs
 
-Not sure if the rake tests are running properly and giving errors
+Not sure if the rake tests are running properly and giving errors.
 
 ## Support and contact details
 
@@ -28,9 +28,13 @@ _{Let people know what to do if they run into any issues or have questions, idea
 
 ## Technologies Used
 
-mysql
-
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+mysql 5.7.11
+rails 4.2.5
+ruby 2.2.2
+gems
+  responders
+  rails-api
+  active_model_serializers
 
 ### License
 
