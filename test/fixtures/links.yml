@@ -7,11 +7,11 @@ one:
   cl_collation: uppercase
   cl_type: subcat
 
-one:
+two:
   cl_from: 2
   cl_to: Science
   cl_sortkey: SCIENTIFIC DISCIPLINES
   cl_timestamp: 2013-09-02 22:56:59
-  cl_sortkey_prefix: Sci 
+  cl_sortkey_prefix: Sci
   cl_collation: uppercase
   cl_type: subcat
