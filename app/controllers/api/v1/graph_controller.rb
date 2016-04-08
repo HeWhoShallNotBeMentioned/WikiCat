@@ -1,8 +1,8 @@
 class Api::V1::GraphController < ApplicationController
 
   def index
-    category = params[:category] ? params[:category]
-    : "Main_topic_classifications"
+    @links = Link.where(:cl_to => "Main_topic_classifications", :cl_type => "subcat")
+    render :json => @links, each_serializer: LinkSerializer, root: "main_topic_classifications"
   end
 
   def show
