@@ -1,4 +1,10 @@
 class Api::V1::GraphController < ApplicationController
+
+  def index
+    category = params[:category] ? params[:category]
+    : "Main_topic_classifications"
+  end
+
   def show
     cat = params[:category] || 'sports'
     @category = Category.where(:cat_title => cat.capitalize).first
