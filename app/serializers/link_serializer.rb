@@ -13,4 +13,9 @@ class LinkSerializer < ActiveModel::Serializer
     href = URI::encode("/api/v1/graph/#{self.sub_category[/([^0A]*(.)$)/]}")
     {:href => href, :method => "GET", :rel => "graph"}
   end
+
+  def _self
+    href = URI::encode("/api/v1/graph/#{self.sub_category[/([^0A]*(.)$)/]}")
+    {:href => href, :method => "GET", :rel => "self"}
+  end
 end
