@@ -4,4 +4,8 @@ class LinkSerializer < ActiveModel::Serializer
   def sub_category
     URI::encode(object.cl_sortkey.force_encoding("ISO-8859-1").encode("utf-8", replace: nil).downcase.tr(" ", "_"))
   end
+
+  def links
+    {:self => _self, :next => _next, :graph => graph}
+  end
 end
