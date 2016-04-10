@@ -16,4 +16,9 @@ class CategorySerializer < ActiveModel::Serializer
     href = URI::encode("/api/v1/graph/#{self.title}")
     {:href => href, :method => "GET", :rel => "graph"}
   end
+
+  def _self
+    href = URI::encode("/api/v1/category/#{self.title}")
+    {:href => href, :method => "GET", :rel => "self"}
+  end
 end
