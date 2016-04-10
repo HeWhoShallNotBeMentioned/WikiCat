@@ -11,26 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227061247) do
+ActiveRecord::Schema.define(version: 20160409235157) do
 
   create_table "categories", primary_key: "cat_id", force: :cascade do |t|
-    t.string   "cat_title",   limit: 255
-    t.integer  "cat_pages",   limit: 4
-    t.integer  "cat_subcats", limit: 4
-    t.integer  "cat_files",   limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.binary  "cat_title",   limit: 255,             null: false
+    t.integer "cat_pages",   limit: 4,   default: 0, null: false
+    t.integer "cat_subcats", limit: 4,   default: 0, null: false
+    t.integer "cat_files",   limit: 4,   default: 0, null: false
   end
 
-  create_table "links", primary_key: "cl_from", force: :cascade do |t|
-    t.string   "cl_to",             limit: 255
-    t.binary   "cl_sortkey",        limit: 65535
-    t.date     "cl_timestamp"
-    t.binary   "cl_sortkey_prefix", limit: 65535
-    t.binary   "cl_collation",      limit: 65535
-    t.string   "cl_type",           limit: 255
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+  add_index "categories", ["cat_pages"], name: "cat_pages", using: :btree
+
+  create_table "links", id: false, force: :cascade do |t|
+    t.integer  "cl_from",           limit: 4,   default: 0,      null: false
+    t.binary   "cl_to",             limit: 255,                  null: false
+    t.binary   "cl_sortkey",        limit: 230,                  null: false
+    t.datetime "cl_timestamp",                                   null: false
+    t.binary   "cl_sortkey_prefix", limit: 255,                  null: false
+    t.binary   "cl_collation",      limit: 32,                   null: false
+    t.string   "cl_type",           limit: 6,   default: "page", null: false
   end
+
+  add_index "links", ["cl_collation"], name: "cl_collation", using: :btree
+  add_index "links", ["cl_from", "cl_to"], name: "cl_from", unique: true, using: :btree
+  add_index "links", ["cl_sortkey"], name: "index_links_on_cl_sortkey", using: :btree
+  add_index "links", ["cl_to", "cl_timestamp"], name: "cl_timestamp", using: :btree
+  add_index "links", ["cl_to", "cl_type", "cl_sortkey", "cl_from"], name: "cl_sortkey", using: :btree
 
 end
