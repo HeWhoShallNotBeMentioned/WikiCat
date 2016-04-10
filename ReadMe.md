@@ -1,12 +1,12 @@
 # _{WikiCat}_
 
-#### _{Brief description of application}, {3/3/2016}_
+#### _{It is an API based application that has WikiPedia categories and related links. It is not designed to be a stand alone application. It's partners will be mentioned here when they are available.}, {4/9/2016}_
 
 #### By Chris Underwood
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_{It is an API based application that has WikiPedia categories and related links. The API is version 1 and can be found under app/controllers/api/v1. There are 4 main paths to get data from the API: 1) http://localhost:3000/api/v1/graph/ which brings up the Main Topic Classifications, 2) http://localhost:3000/api/v1/graph/(category such as arts) which will bring up the subcategories under that category, 3) http://localhost:3000/api/v1/graph/up/(category such as arts) is to be used by another app in ways that I have not fully flushed out, 4) http://localhost:3000/api/v1/category/(category such as arts) shows the info about that category such as number of subcategories and urls to find other data in the system about the category.}_
 
 ## Setup/Installation Requirements
 
@@ -20,7 +20,9 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 
 ## Known Bugs
 
-Not sure if the rake tests are running properly and giving errors.
+Not sure if the up function in the graph controller is working properly.
+
+Not so much a bug as a warning. Loading the full SQL files can take many hours. The links file took my MacBook over 12 hours. I suggest loading the seeds file first to make sure you want to go through the effort to load all of the data.
 
 ## Support and contact details
 
