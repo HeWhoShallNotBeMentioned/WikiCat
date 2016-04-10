@@ -3,14 +3,11 @@ Rails.application.routes.draw do
   namespace :v1 do
     get 'graph/', :to => 'graph#index'
     get '/graph/:category', to: 'graph#show'
+    get '/graph/up/:category', :to => 'graph#up'
+    get '/category/:category', :to => 'category#show'
     end
   end
 
-  namespace :api do
-  namespace :v1 do
-      get '/category/:category', :to => 'category#show'
-    end
-  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
