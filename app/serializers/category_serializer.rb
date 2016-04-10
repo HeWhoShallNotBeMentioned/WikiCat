@@ -1,5 +1,5 @@
 class CategorySerializer < ActiveModel::Serializer
-  attributes :title, :sub_categories, :links
+  attributes :title, :sub_categories, :_links
   def title
     URI::encode(object.cat_title.force_encoding("ISO-8859-1").encode("utf-8", replace: nil).downcase.tr(" ", "_"))
   end
